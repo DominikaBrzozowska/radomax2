@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class NpcController : MonoBehaviour
 {
-    private Boolean playerInteracted = false;
+    private bool playerInteracted = false;
     private SpriteRenderer exclamationMarkRenderer;
     private SpriteRenderer promptKeyRenderer;
 
@@ -46,6 +46,7 @@ public class NpcController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
+        Debug.Log("Stayed Player! " + playerInteracted + " " + Input.GetKey(KeyCode.E));
         if (!playerInteracted && Input.GetKey(KeyCode.E))
         {
             exclamationMarkRenderer.enabled = false;
