@@ -1,0 +1,41 @@
+﻿{
+  "Questions":  [
+      {
+        "Key": "SCENARIO_01_KITCHEN_01",
+        "Question": {
+          "UnityObject": "King",
+          "QuestionGroup": "SCENARIO_01_KITCHEN",
+          "QuestionContent": "Czy ostatnio ktoś się zatruł?",
+          "Answer": "Tak",
+          "QuestionStatus": "Selected",
+          "QuestionGroupAvailable": [
+            "SCENARIO_02_KITCHEN_01"
+          ]
+        }
+      },
+      {
+        "Key": "SCENARIO_01_KITCHEN_02",
+        "Question": {
+          "UnityObject": "King",
+          "QuestionGroup": "SCENARIO_01_KITCHEN",
+          "QuestionContent": "Czy zauważyłeś coś podejrzanego w dostawie babanów?",
+          "Answer": "Tak",
+          "QuestionStatus": "Selected",
+          "QuestionGroupAvailable": [
+            "SCENARIO_03_KITCHEN_01"
+          ]
+        }
+      },
+      {
+        "Key": "SCENARIO_02_KITCHEN_01",
+        "Question": {
+          "UnityObject": "King",
+          "QuestionGroup": "SCENARIO_02_KITCHEN",
+          "QuestionContent": "Kto?",
+          "Answer": "A po przyjęciu lemur budowniczy mówił, że się źle czuł",
+          "QuestionStatus": "Selected"
+        }
+      }
+    ]
+  
+}
