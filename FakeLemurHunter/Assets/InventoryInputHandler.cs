@@ -13,7 +13,7 @@ namespace Assembly_CSharp
     public class InventoryInputHandler : MonoBehaviour
     {
         public GameObject inventoryPanel;
-        public TMP_Text inventoryText;
+        [SerializeField] private Text inventoryText;
 
         private List<string> _inventoryItems = new List<string>();
 
