@@ -6,6 +6,7 @@ public class NpcController : MonoBehaviour
     private bool playerInRange = false;
     private SpriteRenderer exclamationMarkRenderer;
     private SpriteRenderer promptKeyRenderer;
+    [SerializeField] private GameObject pfChatBubble;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class NpcController : MonoBehaviour
         promptKeyRenderer = transform.Find("e-key-prompt").GetComponent<SpriteRenderer>();
     }
 
+    private GameObject lastChatBubbleInstance;
     public void OnInteractPressed()
     {
         if (playerInRange && !playerInteracted)
@@ -23,6 +25,9 @@ public class NpcController : MonoBehaviour
             playerInteracted = true;
             Debug.Log("Interacted with Player!");
             // TODO call DialogManager with dialogId from NPC
+
+            
+            lastChatBubbleInstance = CreateChatBubble(transform, new Vector3(-1.2F, 1.5F, 0), "Cześć!", 9, new UnityEngine.Vector2(0.2f, 0.2f), 0.05f);
         }
     }
 
@@ -46,5 +51,16 @@ public class NpcController : MonoBehaviour
             Debug.Log("Left Player!");
             promptKeyRenderer.enabled = false;
         }
+    }
+
+    public GameObject CreateChatBubble(Transform parent, Vector3 localPosition, string message, int fontSize, UnityEngine.Vector2 padding, float time)
+    {
+        GameObject chatBubbleInstance = Instantiate(pfChatBubble, parent);
+        chatBubbleInstance.transform.localPosition = localPosition;
+
+        ChatBubble chatBubbleScript = chatBubbleInstance.GetComponent<ChatBubble>();
+        chatBubbleScript.Setup(message, fontSize, padding, time);
+
+        return chatBubbleInstance;
     }
 }
