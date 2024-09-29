@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NpcController : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class NpcController : MonoBehaviour
     private SpriteRenderer exclamationMarkRenderer;
     private SpriteRenderer promptKeyRenderer;
     [SerializeField] private GameObject pfChatBubble;
+    public bool IsItThrone = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,11 @@ public class NpcController : MonoBehaviour
     {
         if (playerInRange && !playerInteracted)
         {
+            if(IsItThrone){
+                SceneManager.LoadScene("EndSceneDecision");
+                return;
+            }
+
             exclamationMarkRenderer.enabled = false;
             promptKeyRenderer.enabled = false;
             playerInteracted = true;
