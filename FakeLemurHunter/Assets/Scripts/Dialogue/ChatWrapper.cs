@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace Assets.Script.Dialogue
 {
     [System.Serializable]
-    public class SerializedQuestion
+    public class ChatWrapper
     {
         public string Key;
-        public QuestionData Question;
+        public Chat Chat;
     }
 }

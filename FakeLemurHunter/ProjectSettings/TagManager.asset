@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: TopChatBubble
+    uniqueID: 3560235923
+    locked: 0
