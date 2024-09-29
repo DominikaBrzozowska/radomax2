@@ -231,6 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359152ac87e8a779f824b0fa3bc9d637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogId: 
 --- !u!61 &220893572559098675
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 5.59, y: 10}
-  m_EdgeRadius: 0.6
+  m_EdgeRadius: 0.7
 --- !u!114 &8711312975363107135
 MonoBehaviour:
   m_ObjectHideFlags: 0

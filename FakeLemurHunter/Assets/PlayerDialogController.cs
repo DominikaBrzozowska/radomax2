@@ -8,15 +8,21 @@ public class PlayerDialogController : MonoBehaviour
 {
     private DialogueManager dialogueManager;
 
-    void Strart()
+    void Start()
     {
         dialogueManager = GetComponentInChildren<DialogueManager>();
+        Debug.Log(dialogueManager);
     }
 
     public void StartDialog(String dialogId)
     {
-        Debug.Log("Starting dialog: " + dialogId);
-        var x = dialogueManager.GetChatByKey(dialogId);
-        Debug.Log("Dialog: " + x.Chat.ChatContent);
+        Debug.Log("==== Starting dialog: " + dialogId + " ====");
+        var chatGroups = dialogueManager.GetChatByChatGroup(dialogId);
+        foreach (var chatGroup in chatGroups)
+        {
+            Debug.Log("  • " + chatGroup.Chat.ChatContent);
+        }
+        // Debug.Log("  • " + chatGroups.Chat.ChatContent);
+        Debug.Log("========");
     }
 }
