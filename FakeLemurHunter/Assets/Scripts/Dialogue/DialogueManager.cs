@@ -36,8 +36,7 @@ namespace Assets.Script.Dialogue
 
         public void SetAsSelected(string Key)
         {
-            var dialogueToUpdate = _dialogue.Chats.Where(_ => _.Key == Key).First();
-            dialogueToUpdate.Chat.ChatsStatus = ChatStatus.Selected;
+            _dialogue.Chats.Where(_ => _.Key == Key).First().Chat.ChatsStatus = ChatStatus.Selected;
         }
 
         public List<string> GetInventory()
