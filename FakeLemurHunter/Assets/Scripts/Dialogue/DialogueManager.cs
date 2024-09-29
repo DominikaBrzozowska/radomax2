@@ -10,7 +10,7 @@ namespace Assets.Script.Dialogue
 
     public class DialogueManager : MonoBehaviour
     {
-        private Dialogue _dialogue;
+        private static Dialogue _dialogue;
         private void Start()
         {
             string filePath = Path.Combine(Application.streamingAssetsPath, "dialogue.json");
@@ -19,6 +19,7 @@ namespace Assets.Script.Dialogue
 
             //Debug.Log(GetChatByChatGroup("SCENARIO_01_KITCHEN").Select(_ => _.Chat.ChatContent).FirstOrDefault());
             //Debug.Log(GetAnswerByKey("SCENARIO_01_KITCHEN_01"));
+            Debug.Log(GetInventory());
         }
 
         public List<ChatWrapper> GetChatByChatGroup(string ChatGroup)
@@ -27,11 +28,23 @@ namespace Assets.Script.Dialogue
 
         }
 
-        public string GetAnswerByKey(string Key)
+        public ChatWrapper GetChatByKey(string Key)
         {
-            var chat = _dialogue.Chats.Where(_ => _.Key == Key).First();
+            return _dialogue.Chats.Where(_ => _.Key == Key).First();
 
-            return chat.Chat.Answer;
+        }
+
+        public void SetAsSelected(string Key)
+        {
+            _dialogue.Chats.Where(_ => _.Key == Key).First().Chat.ChatsStatus = ChatStatus.Selected;
+        }
+
+        public List<string> GetInventory()
+        {
+            return _dialogue.Chats
+                .Where(_ => _.Chat.Clue != null && _.Chat.ChatsStatus == ChatStatus.Selected)
+                .Select(_ => _.Chat.Clue)
+                .ToList();
         }
     }
 }

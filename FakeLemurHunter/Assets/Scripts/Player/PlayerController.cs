@@ -90,6 +90,10 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isWalkDown", false);
             animator.SetBool("isWalk", false);
         }
+        else
+        {
+            animator.SetBool("isWalk", true);
+        }
         SetFacingDirection(moveInput);
     }
 
