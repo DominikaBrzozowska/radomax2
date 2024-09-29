@@ -27,11 +27,10 @@ namespace Assets.Script.Dialogue
 
         }
 
-        public string GetAnswerByKey(string Key)
+        public ChatWrapper GetChatByKey(string Key)
         {
-            var chat = _dialogue.Chats.Where(_ => _.Key == Key).First();
+            return _dialogue.Chats.Where(_ => _.Key == Key).First();
 
-            return chat.Chat.Answer;
         }
     }
 }
