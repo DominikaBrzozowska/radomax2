@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 public class NpcController : MonoBehaviour
 {
+    public String dialogId;
+
     private bool playerInteracted = false;
-    private bool playerInRange = false;
+    private PlayerDialogController playerInRange = null;
     private SpriteRenderer exclamationMarkRenderer;
     private SpriteRenderer promptKeyRenderer;
 
@@ -22,7 +25,9 @@ public class NpcController : MonoBehaviour
             promptKeyRenderer.enabled = false;
             playerInteracted = true;
             Debug.Log("Interacted with Player!");
+
             // TODO call DialogManager with dialogId from NPC
+            playerInRange.StartDialog(dialogId);
         }
     }
 
@@ -30,9 +35,9 @@ public class NpcController : MonoBehaviour
     {
         Debug.Log("Collided " + other.gameObject.tag);
         // Check if the object entered a specific trigger
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !playerInteracted)
         {
-            playerInRange = true;
+            playerInRange = other.gameObject.GetComponent<PlayerDialogController>();
             promptKeyRenderer.enabled = true;
             Debug.Log("Triggered Player!");
         }
@@ -42,7 +47,7 @@ public class NpcController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            playerInRange = false;
+            playerInRange = null;
             Debug.Log("Left Player!");
             promptKeyRenderer.enabled = false;
         }
