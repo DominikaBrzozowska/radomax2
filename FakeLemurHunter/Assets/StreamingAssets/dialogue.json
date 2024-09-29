@@ -1,39 +1,39 @@
 ﻿{
-  "Questions":  [
+  "Chats":  [
       {
         "Key": "SCENARIO_01_KITCHEN_01",
-        "Question": {
+        "Chat": {
           "UnityObject": "King",
-          "QuestionGroup": "SCENARIO_01_KITCHEN",
-          "QuestionContent": "Czy ostatnio ktoś się zatruł?",
+          "ChatGroup": "SCENARIO_01_KITCHEN",
+          "ChatContent": "Czy ostatnio ktoś się zatruł?",
           "Answer": "Tak",
-          "QuestionStatus": "Selected",
-          "QuestionGroupAvailable": [
+          "ChatStatus": "Selected",
+          "ChatGroupAvailable": [
             "SCENARIO_02_KITCHEN_01"
           ]
         }
       },
       {
         "Key": "SCENARIO_01_KITCHEN_02",
-        "Question": {
+        "Chat": {
           "UnityObject": "King",
-          "QuestionGroup": "SCENARIO_01_KITCHEN",
-          "QuestionContent": "Czy zauważyłeś coś podejrzanego w dostawie babanów?",
+          "ChatGroup": "SCENARIO_01_KITCHEN",
+          "ChatContent": "Czy zauważyłeś coś podejrzanego w dostawie babanów?",
           "Answer": "Tak",
-          "QuestionStatus": "Selected",
-          "QuestionGroupAvailable": [
+          "ChatStatus": "Selected",
+          "ChatGroupAvailable": [
             "SCENARIO_03_KITCHEN_01"
           ]
         }
       },
       {
         "Key": "SCENARIO_02_KITCHEN_01",
-        "Question": {
+        "Chat": {
           "UnityObject": "King",
-          "QuestionGroup": "SCENARIO_02_KITCHEN",
-          "QuestionContent": "Kto?",
+          "ChatGroup": "SCENARIO_02_KITCHEN",
+          "ChatContent": "Kto?",
           "Answer": "A po przyjęciu lemur budowniczy mówił, że się źle czuł",
-          "QuestionStatus": "Selected"
+          "ChatStatus": "Selected"
         }
       }
     ]

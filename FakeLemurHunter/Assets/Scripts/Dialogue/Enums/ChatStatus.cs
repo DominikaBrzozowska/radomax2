@@ -1,6 +1,6 @@
 ﻿namespace Assets.Script.Dialogue.Enums
 {
-    public enum QuestionStatus
+    public enum ChatStatus
     {
         
         Selected = 0,
