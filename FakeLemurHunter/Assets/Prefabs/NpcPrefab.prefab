@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359152ac87e8a779f824b0fa3bc9d637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pfChatBubble: {fileID: 3848673441252237534, guid: 4d8612bbcf8b6a944a9e763efd0995bc, type: 3}
 --- !u!61 &220893572559098675
 BoxCollider2D:
   m_ObjectHideFlags: 0
