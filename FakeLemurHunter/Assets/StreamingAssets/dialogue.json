@@ -1,40 +1,96 @@
 ﻿{
+
   "Chats":  [
       {
         "Key": "SCENARIO_01_KITCHEN_01",
         "Chat": {
           "UnityObject": "King",
-          "ChatGroup": "SCENARIO_01_KITCHEN",
-          "ChatContent": "Czy ostatnio ktoś się zatruł?",
-          "Answer": "Tak",
+          "ChatGroup": "SCENARIO_01",
+          "ChatContent": "Kucharzu, dotarły do mnie niepokojące wieści o bananach serwowanych na naszych ucztach. Co o tym wiesz?",
+          "Answer": "Wasza Wysokość, zauważyłem, że niektóre banany mają dziwny zapach, który nigdy wcześniej się nie pojawił. To może być niepokojące.",
           "ChatStatus": "UnSelected",
           "ChatGroupAvailable": [
-            "SCENARIO_02_KITCHEN"
-          ]
+            "SCENARIO_01_KITCHEN_01_01"
+          ],
+		 "Clue": "Kucharz -> dziwny zapach owoców"
         }
       },
       {
+        "Key": "SCENARIO_01_KITCHEN_01_01",
+        "Chat": {
+          "UnityObject": "King",
+          "ChatGroup": "SCENARIO_01_KITCHEN_01_01",
+          "ChatContent": "Dziwny zapach? Czy to oznacza, że są one zepsute? Czy może to coś gorszego?",
+          "Answer": "Nie jestem pewien, Wasza Wysokość. Kilka osób z dworu skarżyło się na bóle brzucha po jedzeniu bananów, ale nie mogę stwierdzić, czy to ich wina.",
+          "ChatStatus": "UnSelected",
+          "ChatGroupAvailable": [
+            "SCENARIO_01_KITCHEN_01_02"
+          ],
+		  "Clue": "Kucharz -> zatrucia, czy to banany?"
+        }
+      },
+      {
+        "Key": "SCENARIO_01_KITCHEN_01_02",
+        "Chat": {
+          "UnityObject": "King",
+          "ChatGroup": "SCENARIO_01_KITCHEN_01_02",
+          "ChatContent": "Bóle brzucha? To brzmi poważnie.",
+          "Answer": "Tak, bardzo nieprzyjemna sprawa. Oby tylko szybko wyzdrowieli.",
+          "ChatStatus": "UnSelected",
+		  "ChatGroupAvailable": [
+            "SCENARIO_00"
+          ]
+        }
+      },
+	  
+	  {
         "Key": "SCENARIO_01_KITCHEN_02",
         "Chat": {
           "UnityObject": "King",
-          "ChatGroup": "SCENARIO_01_KITCHEN",
-          "ChatContent": "Czy zauważyłeś coś podejrzanego w dostawie babanów?",
-          "Answer": "Tak",
+          "ChatGroup": "SCENARIO_01",
+          "ChatContent": "Czy masz jakieś podejrzenia?",
+          "Answer": "Właściwie, widziałem, jak dostawca przechodził obok laboratorium chemicznego, co budzi moje wątpliwości. Może to nie jest przypadek.",
           "ChatStatus": "UnSelected",
           "ChatGroupAvailable": [
-            "SCENARIO_03_KITCHEN_01"
+            "SCENARIO_01_KITCHEN_02_01"
+          ],
+		 "Clue": "Kucharz -> dostawca obok laboratorium, to dziwne"
+        }
+      },
+	  {
+        "Key": "SCENARIO_01_KITCHEN_02_01",
+        "Chat": {
+          "UnityObject": "King",
+          "ChatGroup": "SCENARIO_01_KITCHEN_02_01",
+          "ChatContent": "Czy dostawca zachowywał się podejrzanie?",
+          "Answer": "Nie zauważyłem niczego konkretnego, ale jego obecność w pobliżu laboratorium sprawiła, że zaczynam się zastanawiać.",
+          "ChatStatus": "UnSelected",
+          "ChatGroupAvailable": [
+            "SCENARIO_01_KITCHEN_02_02"
           ]
         }
       },
-      {
-        "Key": "SCENARIO_02_KITCHEN_01",
+	  {
+        "Key": "SCENARIO_01_KITCHEN_02_02",
         "Chat": {
           "UnityObject": "King",
-          "ChatGroup": "SCENARIO_02_KITCHEN",
-          "ChatContent": "Kto?",
-          "Answer": "A po przyjęciu lemur budowniczy mówił, że się źle czuł",
-          "ChatStatus": "Selected",
-		  "Clue": "Kucharz powiedział, że Lemur budowniczy źle się czuł"
+          "ChatGroup": "SCENARIO_01_KITCHEN_02_02",
+          "ChatContent": "Dziękuję kucharzu za wszystkie informacje",
+          "Answer": "Tak jest, Wasza Wysokość.",
+          "ChatStatus": "UnSelected",
+          "ChatGroupAvailable": [
+            "SCENARIO_00"
+          ]
+        }
+      },	  
+		{
+        "Key": "SCENARIO_00",
+        "Chat": {
+          "UnityObject": "King",
+          "ChatGroup": "SCENARIO_00",
+          "ChatContent": "Żegnaj.",
+          "Answer": "Żegnaj",
+          "ChatStatus": "UnSelected"
         }
       }
     ]
