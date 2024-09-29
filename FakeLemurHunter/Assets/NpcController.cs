@@ -26,6 +26,7 @@ public class NpcController : MonoBehaviour
             exclamationMarkRenderer.enabled = false;
             playerInteracted = true;
             Debug.Log("Interacted with Player!");
+            // TODO call DialogManager with dialogId from NPC
         }
     }
 
@@ -36,7 +37,6 @@ public class NpcController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            // exclamationMarkRenderer.enabled = true;
             promptKeyRenderer.enabled = true;
             Debug.Log("Triggered Player!");
         }
