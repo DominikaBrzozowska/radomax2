@@ -396,3 +396,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+FakeLemurHunter/FakeLemurHunter_Data/*
+FakeLemurHunter/FakeLemurHunter_BurstDebugInformation_DoNotShip/*
