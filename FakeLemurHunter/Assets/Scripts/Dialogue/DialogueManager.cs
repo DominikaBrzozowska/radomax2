@@ -17,9 +17,8 @@ namespace Assets.Script.Dialogue
             string json = File.ReadAllText(filePath);
             _dialogue = JsonUtility.FromJson<Dialogue>(json);
 
-
-            Debug.Log(GetChatByChatGroup("SCENARIO_01_KITCHEN").Select(_ => _.Chat.ChatContent).FirstOrDefault());
-            Debug.Log(GetAnswerByKey("SCENARIO_01_KITCHEN_01"));
+            //Debug.Log(GetChatByChatGroup("SCENARIO_01_KITCHEN").Select(_ => _.Chat.ChatContent).FirstOrDefault());
+            //Debug.Log(GetAnswerByKey("SCENARIO_01_KITCHEN_01"));
         }
 
         public List<ChatWrapper> GetChatByChatGroup(string ChatGroup)
