@@ -7,7 +7,7 @@
           "ChatGroup": "SCENARIO_01_KITCHEN",
           "ChatContent": "Czy ostatnio ktoś się zatruł?",
           "Answer": "Tak",
-          "ChatStatus": "Selected",
+          "ChatStatus": "UnSelected",
           "ChatGroupAvailable": [
             "SCENARIO_02_KITCHEN"
           ]
@@ -20,7 +20,7 @@
           "ChatGroup": "SCENARIO_01_KITCHEN",
           "ChatContent": "Czy zauważyłeś coś podejrzanego w dostawie babanów?",
           "Answer": "Tak",
-          "ChatStatus": "Selected",
+          "ChatStatus": "UnSelected",
           "ChatGroupAvailable": [
             "SCENARIO_03_KITCHEN_01"
           ]
@@ -33,8 +33,9 @@
           "ChatGroup": "SCENARIO_02_KITCHEN",
           "ChatContent": "Kto?",
           "Answer": "A po przyjęciu lemur budowniczy mówił, że się źle czuł",
-          "ChatStatus": "Selected"
-        }
+          "ChatStatus": "UnSelected"
+        },
+		"Clue": "Kucharz powiedział, że Lemur budowniczy źle się czuł"
       }
     ]
   

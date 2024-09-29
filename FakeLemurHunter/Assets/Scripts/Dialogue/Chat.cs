@@ -17,5 +17,6 @@ namespace Assets.Script.Dialogue
         public string Answer;
         public ChatStatus ChatsStatus = ChatStatus.UnSelected;
         public List<string> ChatsGroupAvailable;
+        public string Clue;
     }
 }
