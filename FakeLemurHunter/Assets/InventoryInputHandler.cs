@@ -24,7 +24,6 @@ namespace Assembly_CSharp
 
         public void OnInventoryStart()
         {
-            Debug.Log("1a");
             inventoryPanel.SetActive(!inventoryPanel.activeSelf);
 
             if (inventoryPanel.activeSelf)
@@ -35,7 +34,6 @@ namespace Assembly_CSharp
 
         private void DisplayInventory()
         {
-            Debug.Log("1");
             _inventoryItems = DialogueManager.GetInventory();
 
             inventoryText.text = "";
@@ -44,8 +42,6 @@ namespace Assembly_CSharp
             {
                 inventoryText.text += item + "\n";
             }
-
-            Debug.Log(inventoryText.text);
         }
     }
 }
