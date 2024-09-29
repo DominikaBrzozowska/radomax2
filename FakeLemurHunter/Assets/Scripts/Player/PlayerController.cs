@@ -99,21 +99,21 @@ public class PlayerController : MonoBehaviour
 
     private void SetFacingDirection(Vector2 moveInput)
     {
+        if (moveInput.x != 0)
+        {
+            animator.SetBool("isWalkUp", false);
+            animator.SetBool("isWalkDown", false);
+            animator.SetBool("isWalk", true);
+        }
         if (moveInput.x > 0 && !IsFacingRight)
         {
             // Face the right
             IsFacingRight = true;
-            animator.SetBool("isWalkUp", false);
-            animator.SetBool("isWalkDown", false);
-            animator.SetBool("isWalk", true);
         }
         else if (moveInput.x < 0 && IsFacingRight)
         {
             // Face the left
             IsFacingRight = false;
-            animator.SetBool("isWalkUp", false);
-            animator.SetBool("isWalkDown", false);
-            animator.SetBool("isWalk", true);
         }
         else if (moveInput.y > 0)
         {
