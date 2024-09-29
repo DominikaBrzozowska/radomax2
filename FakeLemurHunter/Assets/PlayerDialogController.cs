@@ -1,28 +1,31 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using Assets.Script.Dialogue;
 using UnityEngine;
 
 public class PlayerDialogController : MonoBehaviour
 {
     private DialogueManager dialogueManager;
+    private DialogueMenu dialogueMenu;
 
     void Start()
     {
         dialogueManager = GetComponentInChildren<DialogueManager>();
+        dialogueMenu = GetComponentInChildren<DialogueMenu>();
         Debug.Log(dialogueManager);
     }
 
     public void StartDialog(String dialogId)
     {
         Debug.Log("==== Starting dialog: " + dialogId + " ====");
+        Debug.Log(dialogueMenu.name);
         var chatGroups = dialogueManager.GetChatByChatGroup(dialogId);
-        foreach (var chatGroup in chatGroups)
-        {
-            Debug.Log("  • " + chatGroup.Chat.ChatContent);
-        }
-        // Debug.Log("  • " + chatGroups.Chat.ChatContent);
+        // dialogueMenu.CreateButtons(chatGroups.Select(group => group.Chat.ChatContent).ToList());
+        dialogueMenu.OpenDialogQuestions(this, chatGroups);
+        // foreach (var chatGroup in chatGroups)
+        // {
+        //     Debug.Log("  • " + chatGroup.Chat.ChatContent);
+        // }
         Debug.Log("========");
     }
 }

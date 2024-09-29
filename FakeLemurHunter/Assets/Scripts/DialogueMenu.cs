@@ -1,32 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Assets.Script.Dialogue;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
 public class DialogueMenu : MonoBehaviour
 {
     public GameObject buttonPrefab; // Assign the button prefab in the Inspector
-    public Transform buttonContainer; // Assign the panel or parent object for buttons
-    public int numberOfButtons = 5; // Set the number of buttons you want
+    public GameObject buttonContainer; // Assign the panel or parent object for buttons
+
+    private List<GameObject> buttonObjects = new List<GameObject>();
+
+    private PlayerController playerController;
 
     void Start()
     {
-        CreateButtons();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
-    private void CreateButtons()
+    // public void CreateButtons(List<string> buttonTexts)
+    public void OpenDialogQuestions(PlayerDialogController playerController, List<ChatWrapper> chats)
     {
-        for (int i = 0; i < numberOfButtons; i++)
+        for (int i = 0; i < chats.Count; i++)
         {
+            var chat = chats[i];
             // Instantiate a button
-            GameObject button = Instantiate(buttonPrefab, buttonContainer);
+            GameObject button = Instantiate(buttonPrefab, buttonContainer.GetComponent<Transform>());
+            buttonObjects.Add(button);
 
             // Get the TextMeshProUGUI component from the button's child
-            TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
-            if (buttonText != null)
+            TextMeshProUGUI buttonGui = button.GetComponentInChildren<TextMeshProUGUI>();
+            if (buttonGui != null)
             {
-                buttonText.text = (i + 1) + ". " + "Button";
+                buttonGui.text = (i + 1) + ". " + chat.Chat.ChatContent;
             }
             else
             {
@@ -35,13 +44,27 @@ public class DialogueMenu : MonoBehaviour
 
             // Add a listener to the button
             int buttonIndex = i; // Capture the current index
-            button.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(buttonIndex));
+            // var nextChatGroupId = chat.Chat.ChatsGroupAvailable[0];
+            // var anwserText = chat.Chat.Answer;
+            button.GetComponent<Button>().onClick.AddListener(() => OnButtonClick(chat));
         }
     }
 
-    void OnButtonClick(int index)
+
+    private void HideQuestionMenu()
     {
-        Debug.Log("Button " + (index + 1) + " clicked!");
-        // Add your action here
+        gameObject.SetActive(false); // Hide the dialogue menu
+        buttonObjects.ForEach(Destroy); // Destroy all buttons
+        buttonObjects.Clear(); // Clear the list
     }
+
+    void OnButtonClick(ChatWrapper chat)
+    {
+        Debug.Log("Button " + chat.Key + " clicked!");
+        var nextChatGroupId = chat.Chat.ChatsGroupAvailable.Any() ? chat.Chat.ChatsGroupAvailable[0] : null;
+        playerController.npcInRange.Say(chat.Chat.Answer, nextChatGroupId);
+        // Add your action here
+        HideQuestionMenu();
+    }
+
 }

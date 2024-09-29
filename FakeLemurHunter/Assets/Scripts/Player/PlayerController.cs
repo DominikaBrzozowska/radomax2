@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 5f;
     Vector2 moveInput;
 
+    public NpcController npcInRange;
+
     public float CurrentMoveSpeed
     {
         get
@@ -97,4 +99,16 @@ public class PlayerController : MonoBehaviour
             IsFacingRight = false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("PLayer collided with " + other.gameObject.name);
+        // Check if the object entered a specific trigger
+        if (other.CompareTag("NPC"))
+        {
+            npcInRange = other.gameObject.GetComponent<NpcController>();
+            Debug.Log(npcInRange);
+        }
+    }
+
 }
