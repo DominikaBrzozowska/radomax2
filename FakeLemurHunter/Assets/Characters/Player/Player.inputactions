@@ -266,7 +266,7 @@
                 {
                     "name": "",
                     "id": "9a74bf91-ee65-42dc-b138-381c44f866d7",
-                    "path": "<Keyboard>/shift",
+                    "path": "<Keyboard>/e",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
