@@ -6,18 +6,18 @@ public class PlayerMock : MonoBehaviour
 {
     [SerializeField] private GameObject pfChatBubble;
 
-    public void CreateChatBubble(Transform parent, Vector3 localPosition, string message, int fontSize, UnityEngine.Vector2 padding)
+    public void CreateChatBubble(Transform parent, Vector3 localPosition, string message, int fontSize, UnityEngine.Vector2 padding, float time)
     {
         GameObject chatBubbleInstance = Instantiate(pfChatBubble, parent);
         chatBubbleInstance.transform.localPosition = localPosition;
 
         ChatBubble chatBubbleScript = chatBubbleInstance.GetComponent<ChatBubble>();
-        chatBubbleScript.Setup(message, fontSize, padding);
+        chatBubbleScript.Setup(message, fontSize, padding, time);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        CreateChatBubble(transform, new Vector3(0, 1.3F, 0), "Hello World!", 3, new UnityEngine.Vector2(0.2f, 0.2f));
+        CreateChatBubble(transform, new Vector3(0, 1.3F, 0), "Hello World!", 3, new UnityEngine.Vector2(0.2f, 0.2f), 0.05f);
     }
 }
