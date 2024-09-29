@@ -33,7 +33,7 @@
           "ChatGroup": "SCENARIO_02_KITCHEN",
           "ChatContent": "Kto?",
           "Answer": "A po przyjęciu lemur budowniczy mówił, że się źle czuł",
-          "ChatStatus": "Selected"
+          "ChatStatus": "UnSelected"
         },
 		"Clue": "Kucharz powiedział, że Lemur budowniczy źle się czuł"
       }
