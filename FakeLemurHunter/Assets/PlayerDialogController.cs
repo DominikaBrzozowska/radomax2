@@ -20,8 +20,10 @@ public class PlayerDialogController : MonoBehaviour
         Debug.Log("==== Starting dialog: " + dialogId + " ====");
         Debug.Log(dialogueMenu.name);
         var chatGroups = dialogueManager.GetChatByChatGroup(dialogId);
+        Debug.Log(chatGroups.Count + " chat groups found.");
+        Debug.Log(chatGroups);
         // dialogueMenu.CreateButtons(chatGroups.Select(group => group.Chat.ChatContent).ToList());
-        dialogueMenu.OpenDialogQuestions(this, chatGroups);
+        dialogueMenu.OpenDialogQuestions(chatGroups);
         // foreach (var chatGroup in chatGroups)
         // {
         //     Debug.Log("  • " + chatGroup.Chat.ChatContent);

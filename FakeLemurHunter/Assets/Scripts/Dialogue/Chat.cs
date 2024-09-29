@@ -1,5 +1,4 @@
 ﻿using Assets.Script.Dialogue;
-using Assets.Script.Dialogue.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +10,11 @@ namespace Assets.Script.Dialogue
     [System.Serializable]
     public class Chat
     {
-        public UnityObject UnityObject;
+        public string UnityObject;
         public string ChatGroup;
         public string ChatContent;
         public string Answer;
-        public ChatStatus ChatsStatus = ChatStatus.UnSelected;
+        public string ChatStatus;
         public List<string> ChatsGroupAvailable;
         public string Clue;
     }

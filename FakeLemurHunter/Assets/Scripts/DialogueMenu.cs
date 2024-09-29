@@ -22,7 +22,7 @@ public class DialogueMenu : MonoBehaviour
     }
 
     // public void CreateButtons(List<string> buttonTexts)
-    public void OpenDialogQuestions(PlayerDialogController playerController, List<ChatWrapper> chats)
+    public void OpenDialogQuestions(List<ChatWrapper> chats)
     {
         for (int i = 0; i < chats.Count; i++)
         {

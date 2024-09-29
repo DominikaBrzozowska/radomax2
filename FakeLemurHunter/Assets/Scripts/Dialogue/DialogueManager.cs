@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.IO;
-using Assets.Script.Dialogue.Enums;
 using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -10,16 +9,27 @@ namespace Assets.Script.Dialogue
 
     public class DialogueManager : MonoBehaviour
     {
+        private static DialogueManager _instance;
         private static Dialogue _dialogue;
+
+        private void Awake()
+        {
+            if (_instance == null)
+            {
+                _instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
         private void Start()
         {
+            _dialogue = new Dialogue();
             string filePath = Path.Combine(Application.streamingAssetsPath, "dialogue.json");
             string json = File.ReadAllText(filePath);
             _dialogue = JsonUtility.FromJson<Dialogue>(json);
-
-            //Debug.Log(GetChatByChatGroup("SCENARIO_01_KITCHEN").Select(_ => _.Chat.ChatContent).FirstOrDefault());
-            //Debug.Log(GetAnswerByKey("SCENARIO_01_KITCHEN_01"));
-            Debug.Log(GetInventory());
         }
 
         public List<ChatWrapper> GetChatByChatGroup(string ChatGroup)
@@ -36,13 +46,13 @@ namespace Assets.Script.Dialogue
 
         public void SetAsSelected(string Key)
         {
-            _dialogue.Chats.Where(_ => _.Key == Key).First().Chat.ChatsStatus = ChatStatus.Selected;
+            _dialogue.Chats.Where(_ => _.Key == Key).First().Chat.ChatStatus = "Selected";
         }
 
-        public List<string> GetInventory()
+        public static List<string> GetInventory()
         {
             return _dialogue.Chats
-                .Where(_ => _.Chat.Clue != null && _.Chat.ChatsStatus == ChatStatus.Selected)
+                .Where(_ => _.Chat.Clue != null && _.Chat.ChatStatus == "Selected")
                 .Select(_ => _.Chat.Clue)
                 .ToList();
         }

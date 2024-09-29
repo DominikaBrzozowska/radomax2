@@ -220,6 +220,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 091b06a1-1a6f-421a-9775-77560b15fd94
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b05fcbde-ba49-4035-b961-2f6a50406543
+    m_ActionName: Player/GetInventory[/Keyboard/i]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -508,6 +512,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 46820392232132533, guid: 8875390651c0df8768ed7e46ea40c465, type: 3}
+      propertyPath: pfChatBubble
+      value: 
+      objectReference: {fileID: 3848673441252237534, guid: 4d8612bbcf8b6a944a9e763efd0995bc, type: 3}
     - target: {fileID: 1197427828170571175, guid: 8875390651c0df8768ed7e46ea40c465, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.47
