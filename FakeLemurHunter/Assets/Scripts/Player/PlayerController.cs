@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 5f;
     Vector2 moveInput;
+    public bool moveUp = false;
+    public bool moveDown = false;
+    public bool moveVertical = false;
 
     public float CurrentMoveSpeed
     {
@@ -81,6 +84,12 @@ public class PlayerController : MonoBehaviour
 
         IsMoving = moveInput != Vector2.zero;
 
+        if (!IsMoving)
+        {
+            animator.SetBool("isWalkUp", false);
+            animator.SetBool("isWalkDown", false);
+            animator.SetBool("isWalk", false);
+        }
         SetFacingDirection(moveInput);
     }
 
@@ -90,11 +99,29 @@ public class PlayerController : MonoBehaviour
         {
             // Face the right
             IsFacingRight = true;
+            animator.SetBool("isWalkUp", false);
+            animator.SetBool("isWalkDown", false);
+            animator.SetBool("isWalk", true);
         }
         else if (moveInput.x < 0 && IsFacingRight)
         {
             // Face the left
             IsFacingRight = false;
+            animator.SetBool("isWalkUp", false);
+            animator.SetBool("isWalkDown", false);
+            animator.SetBool("isWalk", true);
+        }
+        else if (moveInput.y > 0)
+        {
+            animator.SetBool("isWalkUp", false);
+            animator.SetBool("isWalkDown", true);
+            animator.SetBool("isWalk", false);
+        }
+        else if (moveInput.y < 0)
+        {
+            animator.SetBool("isWalkUp", true);
+            animator.SetBool("isWalkDown", false);
+            animator.SetBool("isWalk", false);
         }
     }
 }
