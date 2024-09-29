@@ -10,25 +10,11 @@ namespace Assets.Script.Dialogue
 
     public class DialogueManager : MonoBehaviour
     {
-        private static DialogueManager _instance;
         private static Dialogue _dialogue;
-
-
-        private void Awake()
-        {
-            if (_instance == null)
-            {
-                _instance = this;
-                DontDestroyOnLoad(gameObject); 
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
 
         private void Start()
         {
+            _dialogue = new Dialogue();
             string filePath = Path.Combine(Application.streamingAssetsPath, "dialogue.json");
             string json = File.ReadAllText(filePath);
             _dialogue = JsonUtility.FromJson<Dialogue>(json);

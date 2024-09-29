@@ -45,7 +45,7 @@ namespace Assembly_CSharp
                 inventoryText.text += item + "\n";
             }
 
-            Debug.Log(inventoryText);
+            Debug.Log(inventoryText.text);
         }
     }
 }
